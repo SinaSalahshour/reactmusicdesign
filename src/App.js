@@ -10,18 +10,22 @@ import Footer from "./components/Footer";
 import "./components/styles.css";
 
 class App extends Component {
+  componentDidMount() {
+    document.body.classList.add("full-height-grow");
+    document.getElementById("root").classList.add("full-height-grow");
+    document.getElementById("root").classList.add("container");
+  }
+
   render() {
     return (
       <BrowserRouter>
-        <div className="container full-height-grow">
-          <Navigation />
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/discover" component={Discover} />
-            <Route path="/join" component={Join} />
-          </Switch>
-          <Footer />
-        </div>
+        <Navigation />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/discover" component={Discover} />
+          <Route path="/join" component={Join} />
+        </Switch>
+        {/*<Footer />*/}
       </BrowserRouter>
     );
   }
